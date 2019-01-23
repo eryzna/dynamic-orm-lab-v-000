@@ -52,11 +52,11 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute)
-    #value = attribute_hash.values.first
-    #formatted_value = value.class == Fixnum ? value : "'#{value}'"
-    #sql = "SELECT * FROM #{self.table_name} WHERE #{attribute_hash.keys.first} = #{formatted_value}"
-    value=attribute.class == Fixnum ? value : "'#{attribute}'"
-    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute}'='#{value}'"
+    value = attribute.values.first
+    formatted_value = value.class == Fixnum ? value : "'#{value}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{formatted_value}"
+    #value=attribute.class == Fixnum ? attribute : "'#{attribute}'"
+    #sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute}'='#{value}'"
     DB[:conn].execute(sql)
   end
 
