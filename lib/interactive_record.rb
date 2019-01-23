@@ -56,7 +56,7 @@ class InteractiveRecord
     #formatted_value = value.class == Fixnum ? value : "'#{value}'"
     #sql = "SELECT * FROM #{self.table_name} WHERE #{attribute_hash.keys.first} = #{formatted_value}"
     value=attribute.class == Fixnum ? attribute : "'#{attribute}'"
-    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute}'='#{value}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute}'='#{attribute}'"
     DB[:conn].execute(sql)
   end
 
