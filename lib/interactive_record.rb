@@ -55,8 +55,6 @@ class InteractiveRecord
     value = attribute.values.first
     new_value = value.class == Fixnum ? value : "'#{value}'"
     sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{new_value}"
-    #value=attribute.class == Fixnum ? attribute : "'#{attribute}'"
-    #sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute}'='#{value}'"
     DB[:conn].execute(sql)
   end
 
